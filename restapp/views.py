@@ -14,7 +14,7 @@ def index(request):
 def detail(request,pk):
     api_call = PersonService()
     person = api_call.get_person(pk)
-    return render(request, 'person/detail.html', {'person': person})
+    return render(request, 'person/detail.html', {'person': person, 'pk': pk})
 
 def new(request):
     form = PersonForm()

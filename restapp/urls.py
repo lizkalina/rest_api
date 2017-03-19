@@ -4,6 +4,7 @@ from restapp import views
 
 app_patterns = [
     url(r'^$', views.index, name='index'),
+    url(r'people\/?$', views.index, name='index'),
     url(r'^people/(?P<pk>[0-9]+)\/?$', views.detail, name='person_detail'),
     url(r'^people/new/$', views.new, {}, 'person_new'),
     url(r'^people/create/$', views.create, {}, 'person_create'),

@@ -1,7 +1,15 @@
+
 {% include "base.html" %}
 
-<form action="{% url 'person_update' pk %}" method="POST">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <input type='submit' value='Submit' />
-</form>
+<div class="wrapper">
+  <div class="container">
+    <div class="page-header">
+      <h2>What's changed?</h2>
+    </div>
+    <form action="{% url 'person_update' pk %}" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type='submit' value='Update' />
+    </form>
+  </div>
+</div>

@@ -1,7 +1,16 @@
 {% include "base.html" %}
 
-{% if person %}
-    <ul>
-    {{ person }}
-    </ul>
-{% endif %}
+<div class="jumbotron">
+  <div class="container">
+    <div class="page-header">
+      <h2>Personal Details</h2>
+    </div>
+      {% if person %}
+            <p>Name: {{ person.name }}</p>
+            <p>Favorite City: {{ person.favorite_city }}</p>
+            <a href="{% url 'person_edit' pk %}">Edit</a>
+            <span> | </span>
+            <a href="{% url 'person_delete' pk %}">Delete</a>
+      {% endif %}
+  </div>
+</div>

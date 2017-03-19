@@ -1,9 +1,14 @@
-{% extends "base.html" %}
+{% include "base.html" %}
 
-{% block content %}
-  <form action="{% url 'person_create' %}" method='POST'>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type='submit' value='Submit' />
-  </form>
-{% endblock %}
+<div class="wrapper">
+  <div class="container">
+    <div class="page-header">
+      <h2>Who are you adding?</h2>
+    </div>
+    <form action="{% url 'person_create' %}" method='POST'>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type='submit' value='Submit' />
+    </form>
+  </div>
+</div>
