@@ -1,12 +1,22 @@
+{% include "base.html" %}
+
+<div class="wrapper">
+  <div class="container">
+
+<div class="page-header">
 <h1>Current Person List:</h1>
+</div>
 
 {% if person_list %}
     <ul>
     {% for person in person_list %}
-    {{ person }}
         <li><a href="/people/{{ person.id }}">{{ person.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>Our person list is empty!</p>
 {% endif %}
+
+<h3><a href="{% url 'person_new' %}">Add someone to our list!</a></h3>
+</div>
+</div>
