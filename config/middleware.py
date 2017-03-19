@@ -1,5 +1,4 @@
 from django.http import QueryDict
-import pdb
 
 class HttpPostTunnelingMiddleware(object):
     def __init__(self, get_response):

@@ -1,18 +1,15 @@
-from .models import Person
-
-from api.people.serializers import PersonSerializer
-
-from django.contrib.auth.models import User
-from django.http import Http404
-
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+from django.contrib.auth.models import User
+from django.http import Http404
+
+from .serializers import PersonSerializer
+from .models import Person
+
 class PersonList(APIView):
-    """
-    List all people, or create a new person.
-    """
+
     def get(self, request, format=None):
         persons = Person.objects.all()
         serializer = PersonSerializer(persons, many=True)
@@ -26,9 +23,7 @@ class PersonList(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class PersonDetail(APIView):
-    """
-    Retrieve, update or delete a person instance.
-    """
+
     def get_object(self, pk):
         try:
             return Person.objects.get(pk=pk)
