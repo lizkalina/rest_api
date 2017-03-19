@@ -26,7 +26,7 @@ SECRET_KEY = 'z8*_3fle^2g3b)b6(tf_qz0i-@v(4skwb3gt0_tjpth!%!bf2g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['serene-inlet-28321.herokuapp.com']
 
 
 # Application definition
