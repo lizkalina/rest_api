@@ -1,7 +1,9 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url, include
+from rest_framework import routers
+from .views import PersonDetail, PersonList
+#import api.people.views as people_views
 
-urlpatterns = patterns(
-    'api.views',
-    url(r'^people/$', 'person_list', name='person_list'),
-    url(r'^people/(?P<pk>[0-9]+)$', 'person_detail', name='person_detail'),
-)
+api_patterns = [
+    url(r'^people/(?P<pk>[0-9]+)$', PersonDetail.as_view(), name='person-details'),
+    url(r'^people/', PersonList.as_view(), name='people-list'),
+    ]
