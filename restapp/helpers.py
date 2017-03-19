@@ -1,2 +1,2 @@
 def _url(path):
-    return 'http://127.0.0.1:8000/api' + path
+    return 'https://serene-inlet-28321.herokuapp.com/api' + path
