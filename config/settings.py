@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'rest_framework',
+    'bootstrap3',
     'api',
     'restapp',
 ]
@@ -51,7 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    #'config.middleware.HttpPostTunnelingMiddleware',
+    ]
 
 ROOT_URLCONF = 'config.urls'
 
@@ -72,7 +74,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
@@ -106,6 +107,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.DjangoModelPermissions'
+#     )
+# }
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
 
@@ -124,3 +131,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')

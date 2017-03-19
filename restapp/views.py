@@ -14,17 +14,17 @@ def index(request):
 def detail(request,pk):
     api_call = PersonService()
     person = api_call.get_person(pk)
-    return render(request, 'person/detail.html', {'person': person})
+    return render(request, 'detail.html', {'person': person})
 
 def new(request):
     form = PersonForm()
-    return render(request, 'person/form.html', {'form': form})
+    return render(request, 'person/new.html', {'form': form})
 
 def edit(request,pk):
     api_call = PersonService()
     person = api_call.get_person(pk)
-    form = PersonForm()
-    return render(request, 'person/edit_form.html', {'form': form})
+    form = PersonForm(person)
+    return render(request, 'person/edit.html', {'form': form, 'pk': pk})
 
 def create(request):
     person_info = json.dumps(request.POST)

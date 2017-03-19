@@ -23,5 +23,5 @@ class PersonService:
 
     def update_person(self,pk,info):
         person_details = json.loads(info)
-        url = _url('/people/{}/'.format(pk))
-        return requests.put(url, json=person_details)
+        response = requests.put(_url('/people/{}/'.format(pk)), json=person_details)
+        return json.loads(response.text)
