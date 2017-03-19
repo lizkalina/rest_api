@@ -1,23 +1,34 @@
+from django.shortcuts import get_object_or_404, render
+
 from .forms import PersonForm
+from .models import Person
+from .services import PersonService
+import pdb
 
-def person_form(request):
-    if request.method == 'GET':
-        form = PostForm()
-    elif request.method == 'POST':
-        form = PostForm(request.POST)
-    # else:
-    #     # A POST request: Handle Form Upload
-    #     form = PostForm(request.POST) # Bind data from request.POST into a PostForm
-    #
-    #     # If data is valid, proceeds to create a new post and redirect the user
-    #     if form.is_valid():
-    #         content = form.cleaned_data['content']
-    #         created_at = form.cleaned_data['created_at']
-    #         post = m.Post.objects.create(content=content,
-    #                                      created_at=created_at)
-    #         return HttpResponseRedirect(reverse('post_detail',
-    #                                             kwargs={'post_id': post.id}))
+def index(request):
+    api_call = PersonService()
+    person_list = api_call.get_people()
+    context = {'person_list': person_list}
+    return render(request, 'index.html', context)
 
-    return render(request, 'post/post_form_upload.html', {
-        'form': form,
-    })
+def detail(request, pk):
+    api_call = PersonService(pk=pk)
+    person = api_call.get_person()
+    return render(request, 'person/detail.html', {'person': person})
+
+
+### TO DO ###
+def create(request, name, favorite_city):
+    api_call = PersonService()
+    person = api_call.create_person(name=name,favorite_city=favorite_city)
+    return render(request, 'person/detail.html', {'person': person})
+
+def update(request, pk):
+    api_call = PersonService()
+    person = api_call.get_person(pk=pk)
+    return render(request, 'person/detail.html', {'person': person})
+
+def delete(request, pk):
+    api_call = PersonService()
+    person = api_call.get_person(pk=pk)
+    return render(request, 'person/detail.html', {'person': person})
