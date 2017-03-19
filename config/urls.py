@@ -24,6 +24,10 @@ urlpatterns = [
     url(r'^api/', include(apipatterns)),
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
-    url(r'^people/(?P<pk>[0-9]+)$', views.detail, name='detail'),
-    #url(r'^people/new/$', views.post_new, name='post_new')
+    url(r'^people/(?P<pk>[0-9]+)$', views.detail, name='person_detail'),
+    url(r'^people/new/$', views.new, {}, 'person_new'),
+    url(r'^people/create/$', views.create, {}, 'person_create'),
+    url(r'^people/edit/(?P<pk>\d+)\/?$', views.edit, {}, 'person_edit'),
+    url(r'^people/update/(?P<pk>\d+)\/?$', views.edit, {}, 'person_update'),
+    url(r'^people/delete/(?P<pk>\d+)\/?$', views.delete, {}, 'person_delete'),
 ]
