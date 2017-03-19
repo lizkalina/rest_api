@@ -1,4 +1,5 @@
-from restapp.models import Person
+from .models import Person
+
 from api.people.serializers import PersonSerializer
 
 from django.contrib.auth.models import User

@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
 
 from .forms import PersonForm
-from .models import Person
+from api.people.models import Person
 from .services import PersonService
 
 import json

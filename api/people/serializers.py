@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from restapp.models import Person
+from .models import Person
 
 class PersonSerializer(serializers.ModelSerializer):
 
