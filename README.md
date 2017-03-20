@@ -23,4 +23,4 @@ The page layout is as follows...
 * [New](https://serene-inlet-28321.herokuapp.com/people/new/) - form to create a person
 * [Edit](https://serene-inlet-28321.herokuapp.com/people/edit/2) - form to edit a person
 
-All communication with the database is handled by the API. The Django app makes requests to the API via service objects called in the views, which render their specified templates once JSON is received. I separated the business logic and the request logic, so that the app would be more flexible to API changes in the future.
+All communication with the database is handled by the API. The Django web client makes requests to the API via service objects called by the views, which then render their specified template once JSON is returned. I separated the business logic and the request logic, so that the app would be more flexible to API changes in the future.
