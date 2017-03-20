@@ -3,7 +3,7 @@ import json
 
 from helpers import _url
 
-class PersonService:
+class PersonAPI:
 
     def get_people(self):
         response = requests.get(_url('/people/'))
